@@ -1,5 +1,15 @@
-[x] typescript
-[ ] dart mode
-[ ] route
-[ ] unocss
-[ ] i18n
+[ ] useState
+[ ] useEffect
+[ ] useLayoutEffect
+[ ] useMemo
+[ ] useCallback
+[ ] useRef
+[ ] useContext
+[ ] useReducer
+[ ] useImperativeHandle
+[ ] useDeferredValue
+[ ] useTransition
+[ ] useId
+[ ] useDebugValue
+[ ] useSyncExternalStore
+[ ] useInsertionEffect
