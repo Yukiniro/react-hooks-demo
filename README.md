@@ -1,18 +1,29 @@
-# vite-react-template
+# Features
 
-This template is built from vite, ESLint, Prettier, and stylelint.
+- [x] useState
+- [ ] useEffect
+- [ ] useLayoutEffect
+- [ ] useMemo
+- [ ] useCallback
+- [ ] useRef
+- [ ] useContext
+- [ ] useReducer
+- [ ] useImperativeHandle
+- [ ] useDeferredValue
+- [ ] useTransition
+- [ ] useId
+- [ ] useDebugValue
+- [ ] useSyncExternalStore
+- [ ] useInsertionEffect
 
-## Features
+# useState
 
-- Vite
-- React
-- Eslint
-- Prettier
+`useState` 用于维护组件的的基本状态，其返回一个数组。
 
-## Useage
+```javascript
+const [state, setState] = useStat(0);
+```
 
-`degit Yukiniro/vite-react-template your-project-name`
+通过解构语法我们将其分为数据 `state` 和数据的更新 `setState`。`state` 和 `setState` 只是普通的 JavaScript 变量，所以也可以命名为其他名字。
 
-Install dependencies `pnpm i`
-
-Run `npx vite`
+在 `class` 组件中我们通过 `setState` 来维护内部状态，在 hook 中返回的 `setState` 的作用和其基本一致，不过不会对 `state` 进行自动合并，所以在函数组件中如果 `state` 是对象，那么调用 `state` 时也需要传入完整的对象。
