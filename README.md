@@ -1,8 +1,8 @@
 # Features
 
 - [x] useState
-- [ ] useEffect
-- [ ] useLayoutEffect
+- [x] useEffect
+- [x] useLayoutEffect
 - [ ] useMemo
 - [ ] useCallback
 - [ ] useRef
@@ -84,7 +84,7 @@ const handleNameChange = e => {
 
 `useEffect` 是 React 的纯函数式世界通往命令式世界的逃生通道。
 
-`useEffect` 接收一个包含命令式、且可能有副作用代码的函数
+`useEffect` 接收一个包含命令式、且可能有副作用代码的函数。
 
 ```javascript
 useEffect(() => {
@@ -92,4 +92,43 @@ useEffect(() => {
 });
 ```
 
-`useEffect` 默认情况下会在每轮渲染结束后执行，
+一般来说，在进行事件订阅后需要在某种情况下进行订阅的取消，所以传递给 `useEffect` 的函数需返回一个清除函数。
+
+```javascript
+useEffect(() => {
+  ChatAPI.subscribe();
+  return () => {
+    ChatAPI.unsubscribe();
+  };
+});
+```
+
+`useEffect` 默认情况下会在每轮渲染结束后执行，也可以通过传递第二个参数进行控制。
+
+```javascript
+useEffect(() => {
+  ChatAPI.subscribe();
+  return () => {
+    ChatAPI.unsubscribe();
+  };
+}, []);
+
+useEffect(() => {
+  ChatAPI.subscribe(id);
+  return () => {
+    ChatAPI.unsubscribe(id);
+  };
+}, [id]);
+```
+
+`useEffect` 会根据第二个参数的内容控制其副作用是否执行，如果传递是空数组，则只会在组件挂载时执行副作用，组件卸载时执行清除函数，如果数组中有值，则会在该值改变时执行上一个清除函数并执行新的副作用。
+
+React 18 之前 `useEffect` 中的函数会在浏览器完成布局与绘制之后在一个延迟事件中被调用，但是在之后的版本中如果它是离散的用户输入（如点击）的结果时，或者它是由 `flushSync` 包装的更新结果时，传递给 `useEffect` 的函数将在屏幕布局和绘制之前同步执行。（_如果并发模式下单个 work 的执行比较快也会导致同步执行_）
+
+# useLayoutEffect
+
+`useLayoutEffect` 的函数签名与 `useEffect` 相同，不同的是它一定会在所有的 DOM 变更之后，浏览器执行绘制之前同步进行调用副作用函数，并且其内部的更新也会被同步刷新。
+
+# useMemo
+
+# useCllabck
