@@ -1,7 +1,12 @@
 import { useState, useLayoutEffect, useRef } from "react";
 import "./App.css";
-import rgbToHex from "rgb-hex";
-import { comelog } from "comelog";
+
+function longCalcEffect() {
+  let i = 0;
+  while (i < 1000000000) {
+    i++;
+  }
+}
 
 function App() {
   const [color, setColor] = useState("#ed5736"); // #ED5736 rgb(127,236,173)
@@ -9,14 +14,14 @@ function App() {
   const handleClick = () =>
     setColor(color => (color === "#ed5736" ? "#7fecad" : "#ed5736"));
 
+  window.handleClick = handleClick;
+
   useLayoutEffect(() => {
-    const bkColor = `#${rgbToHex(titleRef.current.style.background)}`;
-    if (bkColor === color) {
-      comelog.info(bkColor);
-    } else {
-      comelog.error(bkColor);
-    }
+    longCalcEffect();
+    titleRef.current.style.background = "#000000";
   });
+
+  longCalcEffect();
 
   const style = { background: color };
 
