@@ -5,7 +5,7 @@
 - [x] useLayoutEffect
 - [x] useMemo
 - [x] useCallback
-- [ ] useRef
+- [x] useRef
 - [ ] useContext
 - [ ] useReducer
 - [ ] useImperativeHandle
@@ -152,3 +152,13 @@ const memoizedCallback = useCallback(() => {
 ```
 
 `useCallback` 的定义和表现跟 `useMemo` 几乎一致，只不过是 _记忆化的值_ 变成了 _记忆化的函数_。可以将 `useCallback(fn, deps)` 看作是 `useMemo(() => fn, deps)`。
+
+# useRef
+
+```javascript
+const refContainer = useRef(initialValue);
+```
+
+`useRef` 返回一个可变对象，该对象的 `current` 属性可以是任意值（DOM、组件及普通的 javascript 的值），在组件挂载时会被初始化为 `initialValue`。返回的 `ref` 对象会存在于整个生命周期内。
+
+`ref` 对象的内容（`.current`）发生变化时不会通知你，更不会引发组件刷新。
