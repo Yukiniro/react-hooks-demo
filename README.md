@@ -7,7 +7,7 @@
 - [x] useCallback
 - [x] useRef
 - [x] useContext
-- [ ] useReducer
+- [x] useReducer
 - [ ] useImperativeHandle
 - [ ] useDeferredValue
 - [ ] useTransition
@@ -193,3 +193,39 @@ const value = useContext(ThemeContext);
 `useContext` 接收一个 `context` 对象作为参数并返回该 `context` 的当前值。当前的 `context` 值由上层组件中距离当前组件最近的 `ThemeContext.Provider` 的 `value` 决定。
 
 当前 `ThemeContext.Provider` 的 `value` 发生变化时，所有订阅该 `context` 的自组件都会重新渲染。
+
+# useReducer
+
+```javascript
+function reducer(state, action) {
+  switch (action.type) {
+    case "increment":
+      return { count: state.count + 1 };
+    case "decrement":
+      return { count: state.count - 1 };
+    default:
+      return state;
+  }
+}
+
+const [state, dispatch] = useReducer(reducer, { count: 0 });
+```
+
+`useReducer` 可以看作是 `useState` 在复杂计算下的替代方案。它接受一个 `(state, action) => newState` 的 `reducer` 函数并返回一个 `state` 及用以发送 `action` 的 `dispatch` 函数。
+
+如果采用 `useState` 的话上面的代码会被改写为：
+
+```javascript
+const [state, setState] = useState({ count: 0 });
+function reducer(action) {
+  switch (action.type) {
+    case "increment":
+      setState({ count: state.count + 1 });
+    case "decrement":
+      setState({ count: state.count + 1 });
+    default:
+  }
+}
+```
+
+使用 `useReducer` 可以更好地组织用以更新 `state` 的代码，而且由于 `dispatch` 本身的引用是不会改变的，所以可以更加放心的将其传递给组件。
