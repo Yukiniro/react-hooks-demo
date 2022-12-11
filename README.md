@@ -243,3 +243,13 @@ useImperativeHandle(ref, () => {
 ```
 
 `useImperativeHandle` 可以让你在使用 `ref` 时自定义暴露给父组件的实例值。
+
+# useDeferredValue
+
+```javascript
+const deferredValue = useDeferredValue(value);
+```
+
+`useDeferredValue` 接受一个值并返回该值的新的值，`deferredValue` 的更新会在更紧急的更新之后，如果当前的更新是一个紧急的更新，比如用户输入，那么 `deferredValue` 便是之前的，在紧急更新之后会立即进行更新。
+
+如果不是一个紧急的更新则会立即返回最新的值。
