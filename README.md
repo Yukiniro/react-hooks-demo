@@ -9,7 +9,7 @@
 - [x] useContext
 - [x] useReducer
 - [x] useImperativeHandle
-- [ ] useDeferredValue
+- [x] useDeferredValue
 - [ ] useTransition
 - [ ] useId
 - [ ] useDebugValue

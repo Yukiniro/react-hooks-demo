@@ -23,7 +23,7 @@ function App() {
     <div className="App">
       <h1>useDeferredValue</h1>
       <p>Deferred: {deferrdValue}</p>
-      <p>Real Time: {text}</p>
+      <p>Realtime: {text}</p>
       <div>
         <input value={text} onChange={handleChange} />
       </div>
