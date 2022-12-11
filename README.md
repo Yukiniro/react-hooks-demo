@@ -8,7 +8,7 @@
 - [x] useRef
 - [x] useContext
 - [x] useReducer
-- [ ] useImperativeHandle
+- [x] useImperativeHandle
 - [ ] useDeferredValue
 - [ ] useTransition
 - [ ] useId
@@ -229,3 +229,17 @@ function reducer(action) {
 ```
 
 使用 `useReducer` 可以更好地组织用以更新 `state` 的代码，而且由于 `dispatch` 本身的引用是不会改变的，所以可以更加放心的将其传递给组件。
+
+# useImperativeHandle
+
+```javascript
+useImperativeHandle(ref, () => {
+  return {
+    focus: () => {
+      inputRef.current.focus();
+    },
+  };
+});
+```
+
+`useImperativeHandle` 可以让你在使用 `ref` 时自定义暴露给父组件的实例值。
