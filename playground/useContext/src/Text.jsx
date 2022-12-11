@@ -1,8 +1,10 @@
 import { useContext } from "react";
 import { ThemeContext } from "./ThemoContext";
+import { TextContext } from "./TextContext";
 
 function Text() {
   const { bkColor, color } = useContext(ThemeContext);
+  const text = useContext(TextContext);
   return (
     <div
       style={{
@@ -13,7 +15,7 @@ function Text() {
         borderRadius: "6px",
       }}
     >
-      hello world
+      {text}
     </div>
   );
 }

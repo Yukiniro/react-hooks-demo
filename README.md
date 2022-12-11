@@ -162,3 +162,34 @@ const refContainer = useRef(initialValue);
 `useRef` 返回一个可变对象，该对象的 `current` 属性可以是任意值（DOM、组件及普通的 javascript 的值），在组件挂载时会被初始化为 `initialValue`。返回的 `ref` 对象会存在于整个生命周期内。
 
 `ref` 对象的内容（`.current`）发生变化时不会通知你，更不会引发组件刷新。
+
+# useContext
+
+作为单项数据流的 React 来说，跨组件的数据共享是一件很麻烦的事情，我们需要将子/孙组件中用到的数据提升到一个公共的父/祖组件中，这样的话数据的传递可能会跨越很多层，并且大部分的中间组件都不会用到这样的数据。为此，React 提供了 `context` 这样的设置来达到数据共享的目的。
+
+```javascript
+const themes = {
+  light: { bkColor: "#FFF", color: "#000" },
+  dark: { bkColor: "#000", color: "#FFF" },
+};
+
+const ThemeContext = createContext(themes.light);
+```
+
+通过 `createContext` 函数可以创建一个 `context` 对象。`ThemeContext`
+
+```javascript
+<ThemeContext.Provider value={theme}>
+  <div>hello world</div>
+</ThemeContext.Provider>
+```
+
+`Provider` 内的所有子组件都可以访问到 `value`。
+
+```javascript
+const value = useContext(ThemeContext);
+```
+
+`useContext` 接收一个 `context` 对象作为参数并返回该 `context` 的当前值。当前的 `context` 值由上层组件中距离当前组件最近的 `ThemeContext.Provider` 的 `value` 决定。
+
+当前 `ThemeContext.Provider` 的 `value` 发生变化时，所有订阅该 `context` 的自组件都会重新渲染。
