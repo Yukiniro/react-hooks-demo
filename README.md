@@ -6,7 +6,7 @@
 - [x] useMemo
 - [x] useCallback
 - [x] useRef
-- [ ] useContext
+- [x] useContext
 - [ ] useReducer
 - [ ] useImperativeHandle
 - [ ] useDeferredValue
