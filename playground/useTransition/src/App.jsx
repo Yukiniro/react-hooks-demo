@@ -1,34 +1,37 @@
 import { useState, useTransition } from "react";
 import "./App.css";
-
-function longCalcEffect() {
-  let i = 0;
-  while (i < 1000000000) {
-    i++;
-  }
-}
+import List from "./List";
 
 function App() {
-  const [text, setText] = useState("hello world");
-  const [transitionText, setTransitionText] = useState(text);
+  const [number, setNumber] = useState(0);
+  const [transitionNumber, setTransitionNumber] = useState(number);
   const [isPending, startTransition] = useTransition();
 
   const handleChange = e => {
     const value = e.target.value;
-    setText(value);
+    setNumber(value);
+    // setTransitionNumber(value);
     startTransition(() => {
-      setTransitionText(value);
+      setTransitionNumber(value);
     });
   };
 
   return (
     <div className="App">
       <h1>useTransition</h1>
-      {isPending ? <div>Loading</div> : <p>Transiton: {transitionText}</p>}
-      <p>Realtime: {text}</p>
+      <p>Realtime: {number}</p>
+      <p>Transition: {transitionNumber}</p>
       <div>
-        <input value={text} onChange={handleChange} />
+        <input
+          type="range"
+          min={0}
+          max={10000}
+          value={number}
+          onChange={handleChange}
+        />
       </div>
+      <p className="loading">{isPending ? "Loading..." : ""}</p>
+      <List number={transitionNumber} />
     </div>
   );
 }

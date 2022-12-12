@@ -253,3 +253,19 @@ const deferredValue = useDeferredValue(value);
 `useDeferredValue` 接受一个值并返回该值的新的值，`deferredValue` 的更新会在更紧急的更新之后，如果当前的更新是一个紧急的更新，比如用户输入，那么 `deferredValue` 便是之前的，在紧急更新之后会立即进行更新。
 
 如果不是一个紧急的更新则会立即返回最新的值。
+
+# useTransition
+
+```javascript
+const [isPending, startTransition] = useTransition();
+```
+
+`useTransition` 返回一个过渡状态及一个过渡任务的启动函数。
+
+在前端开发中视图的响应是尤为重要的，但是不同交互更新是有着不同的优先级的。比如说输入框、滑块这些交互的更新的优先级就很高，但是其值的附属更新优先级就比较低。
+
+`startTransition` 允许我们将某些任务标记为低优先级任务，这样在进行协调时低优先级的任务就会给高优先级的任务让步，让其优先协调并更新界面，在没有更高优先级的情况下再对低优先级的任务进行协调并更新界面。
+
+`isPending` 表示该任务的更新状态，以便提供等待状态。
+
+需要注意的是 `startTransition` 本质上的执行是同步的，只是它所影响的更新可以被打断罢了，所以如果过渡任务本身就很耗时还是会出现卡顿。
