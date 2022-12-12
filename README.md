@@ -10,9 +10,10 @@
 - [x] useReducer
 - [x] useImperativeHandle
 - [x] useDeferredValue
-- [ ] useTransition
-- [ ] useId
+- [x] useTransition
 - [ ] useDebugValue
+
+- [ ] useId
 - [ ] useSyncExternalStore
 - [ ] useInsertionEffect
 
@@ -269,3 +270,11 @@ const [isPending, startTransition] = useTransition();
 `isPending` 表示该任务的更新状态，以便提供等待状态。
 
 需要注意的是 `startTransition` 本质上的执行是同步的，只是它所影响的更新可以被打断罢了，所以如果过渡任务本身就很耗时还是会出现卡顿。
+
+# useDebugValue
+
+```javascript
+useDebugValue(value);
+```
+
+`useDebugValue` 可用于在 React 开发者工具中显示自定义 hook 的标签。
