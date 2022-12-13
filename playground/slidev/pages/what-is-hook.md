@@ -10,5 +10,5 @@ image: /public/4.jpg
 在 `Hook` 的加持下，函数组件具有了状态(`useState`)，具有了类似于生命周期的副作用处理函数(`useEffect`)，并且在当前 React 的架构体系下，`function-based componet + hook` 的形式比 `class-based component` 更适合。
 
 ---
-src: ./pages/4.md
+src: ./pages/logic-diff.md
 ---

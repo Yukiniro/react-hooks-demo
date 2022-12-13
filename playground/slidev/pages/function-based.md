@@ -17,5 +17,5 @@ function MyClassComponent(props) {
 ```
 
 ---
-src: ./pages/3.md
+src: ./pages/what-is-hook.md
 ---

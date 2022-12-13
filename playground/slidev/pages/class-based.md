@@ -26,5 +26,5 @@ class MyClassComponent extends Componet {
 ```
 
 ---
-src: ./pages/2.md
+src: ./pages/function-based.md
 ---
