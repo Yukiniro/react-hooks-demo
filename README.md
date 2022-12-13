@@ -11,7 +11,7 @@
 - [x] useImperativeHandle
 - [x] useDeferredValue
 - [x] useTransition
-- [ ] useDebugValue
+- [x] useDebugValue
 
 - [ ] useId
 - [ ] useSyncExternalStore
