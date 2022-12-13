@@ -5,8 +5,10 @@ function Row(props) {
   const { title, children } = props;
   return (
     <div className="row">
-      <p className="label">{title}</p>
-      {children}
+      <label className="label">
+        {title}
+        {children}
+      </label>
     </div>
   );
 }

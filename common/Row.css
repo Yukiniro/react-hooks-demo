@@ -1,9 +1,13 @@
 .row {
-  width: 300px;
+  width: 500px;
   color: #000;
+  text-align: left;
+  padding: 12px 0;
 }
 
 .label {
+  display: block;
   font-size: 64px;
   font-weight: bold;
+  padding: 8px 0;
 }
