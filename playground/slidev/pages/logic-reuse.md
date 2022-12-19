@@ -31,8 +31,8 @@ export default useCursor;
 在 `hook` 之前进行组件之间的逻辑复用时一般有以下几种：
 
 - Mixin - _目前基本弃用_
-- 高阶组件（HOC）
-- render-props
+- 高阶组件（HOC）- _高阶组件是参数为组件，返回值为新组件的函数_
+- render-props - _render prop 是一个用于告知组件需要渲染什么内容的函数 prop_
 
 ---
 src: ./pages/rules.md
