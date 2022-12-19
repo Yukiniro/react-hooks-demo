@@ -4,6 +4,8 @@ layout: two-cols
 
 ## 常用 `hook`
 
+<v-click>
+
 - useState
 - useEffect
 - useLayoutEffect
@@ -17,13 +19,19 @@ layout: two-cols
 - useTransition
 - useDebugValue
 
+</v-click>
+
 ::right::
 
 ## 其他 `hook`
 
+<v-click>
+
 - useId
 - useSyncExternalStore
 - useInsertionEffect
+
+</v-click>
 
 ---
 layout: center

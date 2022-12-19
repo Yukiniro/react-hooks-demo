@@ -3,9 +3,9 @@ layout: center
 ---
 
 <div class="text-24">
-  <span>帧</span>
+  <span v-click>帧</span>
     /
-  <span>快照</span>
+  <span v-click>快照</span>
 </div>
 
 <!--
