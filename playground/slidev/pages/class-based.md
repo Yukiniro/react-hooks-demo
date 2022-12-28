@@ -5,14 +5,6 @@ image: /public/2.jpg
 
 # 基于 **类** 的组件
 
-<v-clicks>
-
-- 具有自身的状态 `state`
-- 具有生命周期 `componentDidUpdate` 等
-- 具有组件实例
-
-</v-clicks>
-
 <v-click>
 
 ```javascript
@@ -33,6 +25,14 @@ class MyClassComponent extends Componet {
 ```
 
 </v-click>
+
+<v-clicks>
+
+- 具有自身的状态 `state`
+- 具有生命周期 `componentDidUpdate` 等
+- 具有组件实例
+
+</v-clicks>
 
 ---
 src: ./pages/function-based.md
