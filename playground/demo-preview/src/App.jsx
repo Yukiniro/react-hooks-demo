@@ -1,4 +1,4 @@
-import { Component } from "../../demo-class-based/node_modules/.pnpm/@types+react@18.0.26/node_modules/@types/react";
+import { Component } from "react";
 import "./App.css";
 import Section from "./common/Section";
 import Row from "./common/Row";
