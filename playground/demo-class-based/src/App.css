@@ -44,6 +44,12 @@
   color: #888;
 }
 
+.title {
+  font-size: 54px;
+  padding: 12px 0;
+  font-weight: bold;
+}
+
 .section-title {
   font-size: 54px;
   padding: 12px 0;

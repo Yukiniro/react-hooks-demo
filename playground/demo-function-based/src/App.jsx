@@ -30,7 +30,8 @@ function App() {
 
   return (
     <Section>
-      <h1 className="section-title">Window Width: {width}px</h1>
+      <h1 className="title">Function Based Component</h1>
+      <h2 className="section-title">Window Width: {width}px</h2>
       <Row title="Name">
         <input value={name} onChange={handleNameChange} />
       </Row>

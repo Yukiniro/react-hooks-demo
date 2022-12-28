@@ -39,7 +39,8 @@ class App extends Component {
     const { name, surname, width } = this.state;
     return (
       <Section>
-        <h1 className="section-title">Window Width: {width}px</h1>
+        <h1 className="title">Class Based Component</h1>
+        <h2 className="section-title">Window Width: {width}px</h2>
         <Row title="Name">
           <input value={name} onChange={this.handleNameChange} />
         </Row>
