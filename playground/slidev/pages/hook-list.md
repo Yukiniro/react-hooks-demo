@@ -17,7 +17,6 @@ layout: two-cols
 - useImperativeHandle
 - useDeferredValue
 - useTransition
-- useDebugValue
 
 </v-click>
 
@@ -27,6 +26,7 @@ layout: two-cols
 
 <v-click>
 
+- useDebugValue
 - useId
 - useSyncExternalStore
 - useInsertionEffect
@@ -38,7 +38,7 @@ layout: two-cols
 # useState
 
 ```javascript
-const [count, setCount] = useState(0);
+const [state, setState] = useState(0);
 ```
 
 `useState` 可以传入一个初始值或者初始函数。
@@ -63,6 +63,12 @@ useEffect(() => {
 `[deps]` 是该副作用的依赖，根据其依赖是否变化来进行判断是否进行该副作用。
 
 如果 `[deps]` 是空数组的话则只会进行一次副作用处理。
+
+<v-click>
+
+React 18 之前 `useEffect` 中的函数会在浏览器完成布局与绘制之后在一个延迟事件中被调用，但是在之后的版本中如果它是离散的用户输入（如点击）的结果时，或者它是由 `flushSync` 包装的更新结果时，传递给 `useEffect` 的函数将在屏幕布局和绘制之前同步执行。（_如果并发模式下单个 work 的执行比较快也会导致同步执行_）
+
+</v-click>
 
 ---
 
@@ -173,16 +179,6 @@ const [isPending, startTransition] = useTransition();
 ```
 
 `useTransition` 返回一个过渡状态及一个过渡任务的启动函数。
-
----
-
-# useDebugValue
-
-```javascript
-useDebugValue(value);
-```
-
-`useDebugValue` 可用于在 React 开发者工具中显示自定义 hook 的标签。
 
 ---
 src: ./pages/logic-reuse.md

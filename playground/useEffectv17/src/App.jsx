@@ -1,13 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import "./App.css";
 
-function longCalcEffect() {
-  let i = 0;
-  while (i < 1000000000) {
-    i++;
-  }
-}
-
 function App() {
   const [color, setColor] = useState("#ed5736"); // #ED5736 rgb(127,236,173)
   const titleRef = useRef(null);
@@ -25,7 +18,7 @@ function App() {
   return (
     <div className="App">
       <h1 style={style} ref={titleRef}>
-        useEffect
+        useEffect react@17
       </h1>
       <p style={style}>Current color is: {color}</p>
       <button onClick={handleClick}>Change Color</button>

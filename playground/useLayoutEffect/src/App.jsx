@@ -17,11 +17,8 @@ function App() {
   window.handleClick = handleClick;
 
   useLayoutEffect(() => {
-    longCalcEffect();
     titleRef.current.style.background = "#000000";
   });
-
-  longCalcEffect();
 
   const style = { background: color };
 

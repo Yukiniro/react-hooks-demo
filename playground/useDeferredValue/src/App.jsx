@@ -1,4 +1,4 @@
-import { useDeferredValue, useState, useEffect, startTransition } from "react";
+import { useDeferredValue, useState, useEffect } from "react";
 import "./App.css";
 import { comelog } from "comelog";
 
@@ -7,6 +7,7 @@ function App() {
   const handleChange = e => {
     setText(e.target.value);
   };
+
   const deferrdValue = useDeferredValue(text);
 
   useEffect(() => {
@@ -17,7 +18,7 @@ function App() {
     }
   });
 
-  const handleClick = e => startTransition(() => setText(e.target.value));
+  const handleClick = e => setText(e.target.value);
 
   return (
     <div className="App">
